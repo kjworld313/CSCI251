@@ -1,0 +1,46 @@
+Compilation Command: g++ main.cpp IntVector.cpp
+
+Testing: As I built the header and implementation file for IntVector, I tested each function as I completed each
+requirement. In main, I created formatting testing for myself to see the results/outputs for each function.
+I made sure that constructors set data as expected (even setting data to public to ensure they are storing correctly),
+and I also made sure functions were working properly on IntVectors that utilized different constructors. I tested the 
+default constructor, the constructor with only startingCapacity, and the constructor with multiple inputs with every single
+function. If I ran into errors in functions, I printed some variables that I predicted to be the cause of the error to see what
+kind of data they were holding. When I ran into issues with pointers, I read the errors C++ gave me in the terminal and either
+researched them or if I knew the issue they indicated I located the source and fixed them. For strtol, I considered some cases that
+would frustrate a user of the program. I knew that if a user made a typo on an integer and included a letter or wanted to add 0 to the
+intvector that the program should be able to handle those cases. I first tested to ensure that the input is being stored properly, then
+I tested to make sure that the integers are being converted properly and stored correctly. Once I finished testing that integers were
+being appended to the IntVector, I decided to test letters and tested some possible implementations to avoid those cases. After I finished
+testing that, I tested to see what would happen when a user enters 0 or a number with letters. First, I tried to handle a user entering 0.
+I tested some implementations of that and was successful. Then, I tried to test code that would prevent a user being able to enter a number with
+letters because strtol only took the first half of the number before the letter and a user would be confused if they entered 8999u0 and only
+8999 was appended rather than 89990. There were times I needed to restart each cases, but after every testing I knew more about how to avoid errors
+and was able to write more efficient and accurate code as a result. After I finished testing every function and the while loop in main, I tested
+many more run throughs of the program with multiple different inputs to ensure the program was working correctly. The first step I took in testing was
+to make my own testing code in main, then once I reached the requirements of the main file I kept testing in that file but removed the previous testing code.
+
+Challenges: I faced a few challenges in this lab. The first challenge was creating a constructor with many inputs. I really struggled with the pointer
+to an array as a parameter. I had this problem last homework as well. Pointers are a difficult concept for me to understand, but I decided to trace through my program
+again and test different arguments in the call to that constructor. I think it really helped to keep printing variables / the values pointers point to because I was
+able to better understand the source of the issues. I had some trouble remembering how to create a new array as well. Sometimes I mix up "new int(1)" and "new int[1]."
+Another challenge I faced was using strtol. At first, I had no clue how to use it with user input because I used cplusplus.com to learn more about the function and the example
+showed an already established array of characters, but I started by making an empty character array that had an already established size but without any data and that
+worked so I went with it. The cases for allowing an integer to be appended was very difficult to implement. I was really struggling with preventing the user from being
+able to have a number with a letter in it or a integer that is zero. I started with the zero case and assumed that if the user input was '0' that should allow that integer to
+be appended. Then, I had a difficult time figuring out how to prevent a user from entering a number with a letter in it. I tried to see what the charTracker was catching, but
+the conditional that I implemented was not allowing a user to enter a normal integer. I am currently in Hardware Design, so I remembered that we just had an exam containing ASCII
+conversions, and I decided to go a similar route as the zero case implementation. I decided to check if charTracker is equivalent to '\0' which means the integer was valid, so I 
+created a conditional that tested that. Reading the information for strtol on cplusplus.com really helped, so I appreciate that the professor gave this to us as a source.
+
+Setters for Member Variables: if a user is able to set capacity and size, this will create issues in the append function. Since the append function places an integer at the end
+of the values array, if the user were able to set the size, then we would never be able to have values at the beginning of the array and could have a lot of non-existent values that
+cause problems when trying to access a value at an earlier index. If the user sets capacity to a value less than size, we would not be able to append to the function because the array is
+larger than the capacity it can hold. By not allowing setters for the member variables, we are trying to avoid a user setting size bigger than capacity or setting size larger than the size
+the array actually is (and therefore creating a really weird looking IntVector). Setting size bigger than the array's current size could mean setting size to a larger value than capacity, creating
+the same issue mentioned above with capacity. 
+
+Getter for Values: values is a pointer to an int array, rather than the array itself. Since the constructors set the values pointer to an empty array or an array with already set values, there is
+no way of accessing the array itself. You must index through the pointer since you cannot return the array itself, since the member for values we have is a pointer to a memory address rather than the
+array itself. Values points to the first element in the array. You cannot return the whole array, if you dereference values you are accessing the first element in the array. In order to access all the values,
+we must do *(values + i) and index through and dereference that result. 
