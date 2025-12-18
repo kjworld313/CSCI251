@@ -9,7 +9,7 @@ The directory 'individual_projects' contains two directories: int_vector and ban
 These projects require C++11 or higher to compile.
 
 ## Program Instructions
-In order to run int_vector program, use the 'g++ IntVector.cpp main.cpp' in the terminal. For bank_app, use 'g++ main.cpp BankAccount.cpp CheckingAccount.cpp SavingAccount.cpp Utils.cpp'
+In order to compile int_vector program, use the 'g++ IntVector.cpp main.cpp' in the terminal. For bank_app, use 'g++ main.cpp BankAccount.cpp CheckingAccount.cpp SavingAccount.cpp Utils.cpp'
 
 ## Author
 Author: Katelynn Olson
