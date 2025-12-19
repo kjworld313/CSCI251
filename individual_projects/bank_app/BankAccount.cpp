@@ -48,11 +48,10 @@
                 return true; // withdrawal has been processed
             } else { // balance is too low for withdrawal
                 // display message to user about low balance
-            std::cout << "Invalid amount to withdraw. Amount cannot be greater than balance." << std::endl;
+                std::cout << "Invalid amount to withdraw. Amount cannot be greater than balance." << std::endl;
                 return false;
             }
-        }
-        else { // handle case where user enters a negative or zero amount
+        } else { // handle case where user enters a negative or zero amount
             // display message to user about invalid amount
             std::cout << "Invalid amount to withdraw. Amount cannot be negative or zero." << std::endl;
             return false; // unsuccessful withdraw
