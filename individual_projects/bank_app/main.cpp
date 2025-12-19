@@ -13,7 +13,7 @@ int main() {
     // display welcome message to user
     std::cout << "Welcome to the banking software!" << std::endl;
     // display menu of options to user and handle input cases
-    while(!finished){
+    while (!finished) {
         std::cout << "Options" << std::endl;
         std::cout << "0) Exit" << std::endl;
         std::cout << "1) Make account" << std::endl;
