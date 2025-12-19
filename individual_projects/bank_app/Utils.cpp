@@ -109,7 +109,6 @@ BankAccount* make_account() {
     // handle cases
     // check if user wants to make a saving account
     if (option == "1") { // create a saving account
-
         // declare is_valid boolean to determine if amount is valid
         bool is_valid;
         double interest_rate = get_amount("Enter the interest rate of the account (Accepted Range: 0-1): ", is_valid); // get interest rate for account from user
