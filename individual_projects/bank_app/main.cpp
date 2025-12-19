@@ -93,9 +93,9 @@ int main() {
                 double amount = get_amount("Enter an amount to withdraw: ", is_valid); 
 
                 // attempt to withdraw amount if conversion was successful
-                if (is_valid)
+                if (is_valid) {
                     accounts[username]->withdraw(amount); // withdraw
-                else { // inform user of bad input
+                } else { // inform user of bad input
                     display_bad_input();
                 }
             } else { // username doesn't exist
@@ -108,9 +108,9 @@ int main() {
             std::string username = get_username("Enter the username of account to view: ");
 
             // check if an account with that username is active, if so print account information
-            if (is_account_active(username, accounts))
+            if (is_account_active(username, accounts)) {
                 std::cout << accounts[username]->to_string() << std::endl; // display information
-            else { // username doesn't exist
+            } else { // username doesn't exist
                 display_account_status(); // inform user
             }
         }
@@ -118,13 +118,14 @@ int main() {
         // check if user entered "5" to accrue interest on an account
         else if (input_string == "5") {
             // iterate through accounts and accrue interest on savings accounts
-            for(auto iterator = accounts.begin(); iterator != accounts.end(); iterator++) {
+            for (auto iterator = accounts.begin(); iterator != accounts.end(); iterator++) {
                 // cast BankAccount pointer to a SavingAccount pointer using dynamic cast
                 SavingAccount* saving_account = dynamic_cast<SavingAccount*>(iterator->second); // second is BankAccount* (value)
 
                 // check if cast was successful and accrue interest if so
-                if (saving_account != nullptr)
+                if (saving_account != nullptr) {
                     saving_account->accrue_interest(); // accrue interest
+                }
             }
         }
         // check if user entered "6" to write a check from an account
@@ -151,9 +152,9 @@ int main() {
                         double amount = get_amount("Enter the amount of the check: ", is_valid); 
 
                         // check if amount is a valid double and write check if so
-                        if (is_valid) 
+                        if (is_valid) {
                             checking_account->write_check(*accounts[target_username], amount);
-                        else { // inform user of bad input
+                        } else { // inform user of bad input
                             display_bad_input();
                         }
                     } else {
