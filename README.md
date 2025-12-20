@@ -11,9 +11,9 @@ Designed a custom `IntVector` class for integer data. Program allows users to ap
 ### Language:
 C++
 ### Technical Details:
-Implements Object-Oriented Programming concepts, including Polymorphism (function overloading), Abstraction (header file + implementation file), and Encapsulation (private and public access specifiers in IntVector, accessor and mutator functions). `IntVector` class includes three constructors, a destructor that frees dynamic memory, and several additional functions:
-- `copy`: copies values from current array to a new dynamically allocated array
-- `append`: adds new items to the array and calls `copy` to expand vector when required.
+Implemented Object-Oriented Programming concepts, including Polymorphism (function overloading), Abstraction (header file + implementation file), and Encapsulation (private and public access specifiers in IntVector, accessor and mutator functions). `IntVector` class includes three constructors, a destructor that frees dynamic memory, and several additional functions:
+- `copy`: copies values from current array to a new dynamic array
+- `append`: adds new items to the array and calls `copy` to expand vector when more capacity is required.
 
 Main prompts user for integers and validates input in a loop. If user input is invalid (ie. input is of non-integer type), the loop is terminated. Program computes and prints total sum of integers stored in the IntVector instance.
 
@@ -32,7 +32,7 @@ Derived classes of `BankAccount`:
  - `SavingAccount`: has an interest rate member and `accrueInterest` function
  - `CheckingAccount`: maintains a check log and `writeCheck` function
 
-Utils contains functions for account creation, retrieval/conversion of inputs/data types, and account status to further abstract program. Main prompts menu of options to user, validates user input + informs of and handles bad input, and performs operations on a map containing accounts mapped to usernames. Program frees dynamically allocated BankAccount pointers from map at end of program.
+Utils contains functions for account creation, retrieval/conversion of inputs/data types, and account status to further abstract program. Main prompts menu of options to user, validates user input + informs of and handles bad input, and performs operations on a map containing accounts with usernames as keys. Program frees dynamically allocated BankAccount pointers from map at end of program.
 - Focused on incorporating aspects of SOLID principles into program; BankAccount is closed for modification
   but open for extension with specialized children classes to ensure simplicity and lower chance of code
   breakage. 
